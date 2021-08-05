@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+echo "Compiling..."
+g++ gol.cpp -o gol -std=c++20 -lGL -lGLEW -lglfw -lpthread
+echo "Done!"
