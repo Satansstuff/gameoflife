@@ -73,7 +73,7 @@ namespace render
         //Is over now
         window.isrunning = true;
         window.setup = true;
-        //glViewport(0, 0,  window.resolution.x, window.resolution.y);
+        glViewport(0, 0,  window.resolution.x, window.resolution.y);
         return window.glwindow;
     }
     bool isopen()
@@ -115,10 +115,9 @@ namespace camera
     {
         return bfunc();
     }
-    void setUniforms()
+    void setUniforms(std::function<void()> func)
     {
-        glUniformMatrix4fv(cam.viewpoint, 1, GL_FALSE, &cam.view[0][0]);
-        glUniformMatrix4fv(cam.projectionpoint, 1, GL_FALSE, &cam.projection[0][0]);
+        func();
     }
 }
 namespace proceduralgen

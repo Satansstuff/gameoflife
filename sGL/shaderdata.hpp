@@ -1,5 +1,6 @@
-#ifndef _HEADER_SHADERS
-#define _HEADER_SHADERS
+#ifndef _HEADER_SHADERDATA
+#define _HEADER_SHADERDATA
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -11,6 +12,7 @@
 #include <glm/glm.hpp>
 #include <functional>
 #include <tuple>
+#include <array>
 
 namespace shadertype
 {
@@ -66,7 +68,7 @@ struct cameraobj
     glm::vec3 target;
     glm::mat4 projection, view;
     int projectionpoint = -1, viewpoint = -1;
-} cam;
+}cam;
 struct glbuffer
 {
     uint32_t bufferid = 0;
@@ -109,11 +111,12 @@ struct shaderprogram
 };
 
 
-static std::unordered_map<std::string, shaderobject> shaders;
-static std::unordered_map<std::string, shaderprogram> shaderprograms;
-static std::unordered_map<std::string, glbuffer> glbuffers;
-static std::unordered_map<std::string, std::function<void(void)>> functions;
-static std::string currentprogram = "";
+std::unordered_map<std::string, shaderobject> shaders;
+std::unordered_map<std::string, shaderprogram> shaderprograms;
+std::unordered_map<std::string, glbuffer> glbuffers;
+std::unordered_map<std::string, std::function<void(void)>> functions;
+std::string currentprogram = "";
 using bio = glbuffer;
 using datastream = char*;
-#endif /* _HEADER_SHADERS */
+
+#endif /* _HEADER_SHADERDATA */
